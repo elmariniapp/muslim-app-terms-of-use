@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muslim App – Conditions d’utilisation</title>
+  <style>
+    :root{
+      --bg:#0b0d10;
+      --text:#f4f6f8;
+      --muted:#b7c0c8;
+      --line:rgba(255,255,255,.08);
+      --gold:#d4af37;
+      --gold2:#f0d77a;
+      --panel:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      --shadow:0 18px 60px rgba(0,0,0,.35);
+      --radius:22px;
+      --max:1040px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 700px at 85% -10%, rgba(212,175,55,.12), transparent 55%),
+        radial-gradient(900px 500px at -10% 10%, rgba(212,175,55,.08), transparent 45%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .wrap{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+      padding:24px 0 72px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:24px;
+    }
+
+    .eyebrow{
+      color:var(--gold2);
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.06;
+      letter-spacing:-.03em;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      max-width:76ch;
+      margin:10px 0 0;
+    }
+
+    .lang-switch{
+      display:inline-flex;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:4px;
+      gap:4px;
+      box-shadow:var(--shadow);
+    }
+
+    .lang-switch button{
+      appearance:none;
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .lang-switch button.active{
+      background:linear-gradient(180deg, rgba(212,175,55,.2), rgba(212,175,55,.1));
+      color:var(--text);
+      box-shadow:inset 0 0 0 1px rgba(212,175,55,.28);
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-bottom:18px;
+    }
+
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      margin-top:18px;
+    }
+
+    h2{
+      font-size:1.24rem;
+      margin:0 0 14px;
+      letter-spacing:-.02em;
+    }
+
+    h3{
+      font-size:1rem;
+      margin:24px 0 10px;
+    }
+
+    ul,ol{
+      margin:10px 0 0 20px;
+      padding:0;
+    }
+
+    li+li{margin-top:8px}
+
+    .toc{
+      display:grid;
+      gap:10px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color:var(--text);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.025);
+      border-radius:14px;
+      padding:12px 14px;
+      transition:.16s ease;
+    }
+
+    .toc a:hover{
+      border-color:rgba(212,175,55,.35);
+      background:rgba(212,175,55,.06);
+    }
+
+    .muted, .muted p{color:var(--muted)}
+    .lang{display:none}
+    .lang.active{display:block}
+
+    .notice{
+      margin-top:16px;
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(240,202,117,.35);
+      background:#3a2e14;
+      font-size:14px;
+    }
+
+    .placeholder{
+      color:var(--gold2);
+      font-weight:700;
+    }
+
+    .footer{
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      margin-top:26px;
+    }
+
+    a{color:var(--gold2)}
+
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .topbar{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Muslim App • Legal</div>
+        <h1 data-fr="Conditions d’utilisation" data-en="Terms of use">Conditions d’utilisation</h1>
+        <p class="subtitle" data-fr="Page bilingue FR/EN définissant les règles générales d’accès et d’usage de Muslim App." data-en="Bilingual FR/EN page defining the general rules for accessing and using Muslim App.">
+          Page bilingue FR/EN définissant les règles générales d’accès et d’usage de Muslim App.
+        </p>
+      </div>
+
+      <div class="lang-switch" aria-label="Language switcher">
+        <button id="btn-fr" class="active" type="button">FR</button>
+        <button id="btn-en" type="button">EN</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="lang lang-fr active">
+        <p>
+          Les présentes Conditions d’utilisation encadrent l’accès à l’application <strong>Muslim App</strong> et l’usage de ses fonctionnalités, contenus et services.
+        </p>
+        <div class="meta">
+          <span class="pill">Application : Muslim App</span>
+          <span class="pill">Support : <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a></span>
+          <span class="pill">Éditeur public : El Marini App</span>
+        </div>
+        <div class="notice">
+          Les seuls champs restant éventuellement à compléter sont l’identité légale exacte et l’adresse postale professionnelle si tu veux les harmoniser avec les autres pages juridiques.
+        </div>
+      </div>
+
+      <div class="lang lang-en">
+        <p>
+          These Terms of Use govern access to the <strong>Muslim App</strong> application and the use of its features, content and services.
+        </p>
+        <div class="meta">
+          <span class="pill">App: Muslim App</span>
+          <span class="pill">Support: <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a></span>
+          <span class="pill">Public publisher: El Marini App</span>
+        </div>
+        <div class="notice">
+          The only fields that may still need completion are the exact legal identity and the professional postal address if you want them aligned with your other legal pages.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <aside class="card">
+        <div class="lang lang-fr active">
+          <h2>Accès rapide</h2>
+          <nav class="toc">
+            <a href="#fr-1">1. Objet</a>
+            <a href="#fr-2">2. Accès à l’application</a>
+            <a href="#fr-3">3. Usage autorisé</a>
+            <a href="#fr-4">4. Compte, appareil et compatibilité</a>
+            <a href="#fr-5">5. Contenus et fonctionnalités</a>
+            <a href="#fr-6">6. Propriété intellectuelle</a>
+            <a href="#fr-7">7. Suspension ou limitation</a>
+            <a href="#fr-8">8. Responsabilité</a>
+            <a href="#fr-9">9. Données personnelles</a>
+            <a href="#fr-10">10. Contact</a>
+            <a href="#fr-11">11. Modification des conditions</a>
+            <a href="#fr-12">12. Droit applicable</a>
+          </nav>
+        </div>
+
+        <div class="lang lang-en">
+          <h2>Quick access</h2>
+          <nav class="toc">
+            <a href="#en-1">1. Purpose</a>
+            <a href="#en-2">2. Access to the app</a>
+            <a href="#en-3">3. Authorized use</a>
+            <a href="#en-4">4. Account, device and compatibility</a>
+            <a href="#en-5">5. Content and features</a>
+            <a href="#en-6">6. Intellectual property</a>
+            <a href="#en-7">7. Suspension or limitation</a>
+            <a href="#en-8">8. Liability</a>
+            <a href="#en-9">9. Personal data</a>
+            <a href="#en-10">10. Contact</a>
+            <a href="#en-11">11. Changes to the terms</a>
+            <a href="#en-12">12. Governing law</a>
+          </nav>
+        </div>
+      </aside>
+
+      <aside class="card muted">
+        <div class="lang lang-fr active">
+          <h2>Résumé</h2>
+          <ul>
+            <li>Muslim App doit être utilisé de manière conforme, licite et raisonnable.</li>
+            <li>Certaines fonctions peuvent dépendre de l’appareil, de la langue, du réseau, du pays ou de la version installée.</li>
+            <li>Les contenus, interfaces et éléments visuels restent protégés.</li>
+            <li>Le support est joignable à <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a>.</li>
+          </ul>
+        </div>
+
+        <div class="lang lang-en">
+          <h2>Summary</h2>
+          <ul>
+            <li>Muslim App must be used in a lawful, proper and reasonable manner.</li>
+            <li>Some functions may depend on the device, language, network, country or installed version.</li>
+            <li>Content, interfaces and visual elements remain protected.</li>
+            <li>Support is available at <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a>.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <div class="card">
+      <div class="lang lang-fr active">
+        <section id="fr-1">
+          <h2>1. Objet</h2>
+          <p>
+            Les présentes Conditions d’utilisation ont pour objet de définir les règles générales applicables à l’accès et à l’utilisation de Muslim App.
+          </p>
+        </section>
+
+        <section id="fr-2">
+          <h3>2. Accès à l’application</h3>
+          <p>
+            L’accès à Muslim App est possible sous réserve de compatibilité technique, de disponibilité de l’application, du terminal, du réseau et, le cas échéant, des services tiers nécessaires à certaines fonctionnalités.
+          </p>
+        </section>
+
+        <section id="fr-3">
+          <h3>3. Usage autorisé</h3>
+          <p>
+            L’utilisateur s’engage à utiliser l’application de manière personnelle, normale, licite et conforme à sa destination. Tout usage frauduleux, abusif, détourné, automatisé de manière non autorisée, ou portant atteinte au bon fonctionnement de l’application, peut être interdit.
+          </p>
+        </section>
+
+        <section id="fr-4">
+          <h3>4. Compte, appareil et compatibilité</h3>
+          <p>
+            Certaines fonctionnalités peuvent nécessiter un appareil compatible, une version à jour de l’application, des autorisations système, une connexion internet, ou un environnement logiciel particulier. L’utilisateur demeure responsable de son équipement, de sa configuration et de l’usage de son compte sur la plateforme de téléchargement.
+          </p>
+        </section>
+
+        <section id="fr-5">
+          <h3>5. Contenus et fonctionnalités</h3>
+          <p>
+            Muslim App peut proposer différentes fonctionnalités, contenus, modules, écrans informatifs, paramètres, options gratuites ou payantes, selon la version installée et l’évolution de l’application. Certaines fonctions peuvent être modifiées, enrichies, limitées, indisponibles temporairement ou réservées à certaines versions.
+          </p>
+        </section>
+
+        <section id="fr-6">
+          <h3>6. Propriété intellectuelle</h3>
+          <p>
+            Sauf mention contraire, les textes, éléments graphiques, interfaces, contenus, logos, icônes, compositions visuelles, structures d’écran et éléments de l’application sont protégés par les règles applicables en matière de propriété intellectuelle. Toute reproduction, extraction, diffusion ou réutilisation non autorisée peut être interdite.
+          </p>
+        </section>
+
+        <section id="fr-7">
+          <h3>7. Suspension ou limitation</h3>
+          <p>
+            L’accès à certaines fonctionnalités peut être suspendu, limité ou interrompu en cas de maintenance, d’évolution technique, de contrainte externe, d’abus, d’usage non conforme, ou de nécessité de sécurisation.
+          </p>
+        </section>
+
+        <section id="fr-8">
+          <h3>8. Responsabilité</h3>
+          <p>
+            Muslim App s’efforce de fournir une expérience soignée et fiable, sans garantir l’absence totale d’erreur, d’interruption, de latence, de bug, d’incompatibilité, ou de dépendance à des services tiers. L’utilisateur utilise l’application sous sa responsabilité, dans les limites permises par le droit applicable.
+          </p>
+        </section>
+
+        <section id="fr-9">
+          <h3>9. Données personnelles</h3>
+          <p>
+            Les règles applicables au traitement éventuel des données personnelles sont décrites dans la politique de confidentialité de Muslim App, accessible séparément.
+          </p>
+        </section>
+
+        <section id="fr-10">
+          <h3>10. Contact</h3>
+          <p>
+            Pour toute question, assistance, signalement ou demande relative à l’application, l’utilisateur peut contacter <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a>.
+          </p>
+        </section>
+
+        <section id="fr-11">
+          <h3>11. Modification des conditions</h3>
+          <p>
+            Les présentes Conditions d’utilisation peuvent être mises à jour à tout moment afin de refléter l’évolution de l’application, de ses fonctionnalités, de ses contraintes techniques ou du cadre légal applicable.
+          </p>
+        </section>
+
+        <section id="fr-12">
+          <h3>12. Droit applicable</h3>
+          <p>
+            Les présentes Conditions d’utilisation sont soumises au droit français, sous réserve des dispositions impératives plus protectrices éventuellement applicables au consommateur selon son lieu de résidence habituel.
+          </p>
+        </section>
+      </div>
+
+      <div class="lang lang-en">
+        <section id="en-1">
+          <h2>1. Purpose</h2>
+          <p>
+            These Terms of Use define the general rules applicable to accessing and using Muslim App.
+          </p>
+        </section>
+
+        <section id="en-2">
+          <h3>2. Access to the app</h3>
+          <p>
+            Access to Muslim App is subject to technical compatibility, application availability, device, network and, where applicable, third-party services required for certain features.
+          </p>
+        </section>
+
+        <section id="en-3">
+          <h3>3. Authorized use</h3>
+          <p>
+            The user agrees to use the app in a personal, normal, lawful and intended manner. Any fraudulent, abusive, diverted, unauthorized automated use, or use that harms the proper functioning of the app, may be prohibited.
+          </p>
+        </section>
+
+        <section id="en-4">
+          <h3>4. Account, device and compatibility</h3>
+          <p>
+            Some features may require a compatible device, an up-to-date version of the app, system permissions, an internet connection or a specific software environment. The user remains responsible for their equipment, configuration and the use of their account on the download platform.
+          </p>
+        </section>
+
+        <section id="en-5">
+          <h3>5. Content and features</h3>
+          <p>
+            Muslim App may offer various features, content, modules, informational screens, settings, free or paid options, depending on the installed version and the app’s evolution. Some features may be changed, enhanced, limited, temporarily unavailable or reserved for certain versions.
+          </p>
+        </section>
+
+        <section id="en-6">
+          <h3>6. Intellectual property</h3>
+          <p>
+            Unless otherwise stated, the texts, graphical elements, interfaces, content, logos, icons, visual compositions, screen structures and app elements are protected by applicable intellectual property rules. Any unauthorized reproduction, extraction, distribution or reuse may be prohibited.
+          </p>
+        </section>
+
+        <section id="en-7">
+          <h3>7. Suspension or limitation</h3>
+          <p>
+            Access to certain features may be suspended, limited or interrupted in the event of maintenance, technical changes, external constraints, abuse, improper use, or security requirements.
+          </p>
+        </section>
+
+        <section id="en-8">
+          <h3>8. Liability</h3>
+          <p>
+            Muslim App strives to provide a polished and reliable experience, without guaranteeing the total absence of error, interruption, latency, bug, incompatibility or dependency on third-party services. The user uses the app under their own responsibility, within the limits permitted by applicable law.
+          </p>
+        </section>
+
+        <section id="en-9">
+          <h3>9. Personal data</h3>
+          <p>
+            The rules applicable to any processing of personal data are described in Muslim App’s privacy policy, available separately.
+          </p>
+        </section>
+
+        <section id="en-10">
+          <h3>10. Contact</h3>
+          <p>
+            For any question, support request, report or application-related inquiry, the user may contact <a href="mailto:support@elmariniapp.com">support@elmariniapp.com</a>.
+          </p>
+        </section>
+
+        <section id="en-11">
+          <h3>11. Changes to the terms</h3>
+          <p>
+            These Terms of Use may be updated at any time to reflect changes in the app, its features, technical constraints or the applicable legal framework.
+          </p>
+        </section>
+
+        <section id="en-12">
+          <h3>12. Governing law</h3>
+          <p>
+            These Terms of Use are governed by French law, subject to any mandatory more protective provisions that may apply to the consumer under the law of the consumer’s habitual residence.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="lang lang-fr active">Dernière mise à jour : 25 avril 2026</span>
+      <span class="lang lang-en">Last update: April 25, 2026</span>
+    </div>
+  </div>
+
+  <script>
+    const frBtn = document.getElementById('btn-fr');
+    const enBtn = document.getElementById('btn-en');
+
+    function setLang(lang){
+      const isFr = lang === 'fr';
+      document.documentElement.lang = isFr ? 'fr' : 'en';
+      document.querySelectorAll('.lang-fr').forEach(el => el.classList.toggle('active', isFr));
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('active', !isFr));
+      frBtn.classList.toggle('active', isFr);
+      enBtn.classList.toggle('active', !isFr);
+      document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+        el.textContent = isFr ? el.dataset.fr : el.dataset.en;
+      });
+    }
+
+    frBtn.addEventListener('click', () => setLang('fr'));
+    enBtn.addEventListener('click', () => setLang('en'));
+  </script>
+</body>
+</html>
